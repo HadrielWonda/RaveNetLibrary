@@ -5,8 +5,8 @@ using RaveNetLibrary.Payments;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace RaveNetLibrary
-{
+namespace RaveNetLibrary;
+
     public class RaveFeesData : PayResponseData
     {
         /// <summary>
@@ -32,4 +32,4 @@ namespace RaveNetLibrary
         [JsonProperty("ravefee")]
         public decimal RaveFee { get; set; }
     }
-}
+

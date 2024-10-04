@@ -2,8 +2,8 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace RaveNetLibrary.Banks
-{
+namespace RaveNetLibrary.Banks;
+
     public static class BankService
     {
         private static readonly RavePayApiRequest RavePayRequest = new RavePayApiRequest();
@@ -25,4 +25,4 @@ namespace RaveNetLibrary.Banks
             return await RavePayRequest.Request<RaveApiResponse<BankTransferListResponse>>(requestMessage);
         }
     }
-}
+

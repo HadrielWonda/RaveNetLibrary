@@ -3,8 +3,8 @@ using System.Text;
 using RaveNetLibrary.Currencies;
 using Newtonsoft.Json;
 
-namespace RaveNetLibrary
-{
+namespace RaveNetLibrary;
+
     /// <summary>
     /// The parameters needed to call the get fees endpoint
     /// </summary>
@@ -51,4 +51,4 @@ namespace RaveNetLibrary
         [JsonProperty("card6")]
         public string Card6 { get; set; }
     }
-}
+

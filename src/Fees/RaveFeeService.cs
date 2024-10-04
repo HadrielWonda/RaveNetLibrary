@@ -3,8 +3,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace RaveNetLibrary
-{
+namespace RaveNetLibrary;
+
     public static class RaveFeeService
     {
         private static readonly RavePayApiRequest<RaveApiResponse<RaveFeesData>, RaveFeesData> ApiRequest =
@@ -17,4 +17,4 @@ namespace RaveNetLibrary
             return await ApiRequest.Request(httpMessage);
         }
     }
-}
+

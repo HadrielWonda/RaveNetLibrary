@@ -2,8 +2,8 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace RaveNetLibrary.Banks
-{
+namespace RaveNetLibrary.Banks;
+
     public class BankTransfer
     {
 
@@ -37,4 +37,4 @@ namespace RaveNetLibrary.Banks
         public string Status { get; set; }
         public string Message { get; set; }
     }
-}
+

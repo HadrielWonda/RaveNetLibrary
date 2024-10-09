@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>RaveNetLibrary</id>
+    <version>1.0.1-beta</version>
+    <title>RaveNetLibrary</title>
+    <authors>Olawale Abaniwonda</authors>
+    <owners></owners>
+    <licenseUrl>https://github.com/hadrielwonda/RaveNetLibrary/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/hadrielwonda/RaveNetLibrary</projectUrl>
+    <iconUrl></iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET Library for Flutterwave RavePay</description>
+    <releaseNotes>This is an initial release of the Flutterwae RavePay .NET Library.</releaseNotes>
+    <copyright>Copyright 2024</copyright>
+    <tags>Flutterwave, RavePay, .net</tags>
+  </metadata>
+</package>

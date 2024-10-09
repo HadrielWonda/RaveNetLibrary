@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.6-beta</Version>
+    <Description>.NET Library for Flutterwave RavePay</Description>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://github.com/hadrielwonda/RaveNetLibrary</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/hadrielwonda/RaveNetLibrary/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType></RepositoryType>
+    <PackageReleaseNotes>Breaking changes
+
+The charge validation feature has been moved their different specialised classes
+`RaveAccountChargeValidation `and `RaveCardChargeValidation`
+
+And to they are used like so:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var raveConfig = new RavePayConfig(TestConsts.recurringPbKey, TestConsts.recurringScKey, false);
+var cardValidation = new RaveCardChargeValidation(raveConfig);
+var val = cardValidation.ValidateCharge(new CardValidateChargeParams(TestConsts.recurringPbKey, txRef, "12345")).Result;
+// You can query their results now
+Trace.WriteLine($"Status: {val.Status}"); // Should be "success"
+Trace.WriteLine($"Message: {val.Message}");
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Also every card charge validation request now returns a token. This token can be
+used to charge the card subsequently without using the full card details.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Trace.WriteLine(val.Data.TX.CardChargeToken.EmbedToken));
+Trace.WriteLine(val.Data.TX.CardChargeToken.UserToken));
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</PackageReleaseNotes>
+    <PackageTags>Flutterwave, RavePay, .net</PackageTags>
+    <RepositoryUrl>https://github.com/hadrielwonda/RaveNetLibrary</RepositoryUrl>
+    <Authors>Okezie Okpara</Authors>
+    <Company />
+    <Product />
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\RaveNetLibrary.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Customers\**" />
+    <EmbeddedResource Remove="Customers\**" />
+    <None Remove="Customers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Payments\Account\BankAccount.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="OpenCover" Version="4.6.519" />
+  </ItemGroup>
+
+</Project>
